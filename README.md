@@ -1,15 +1,20 @@
-docker run --name redis-client -v redisinsight:/db -p 8001:8001 -d redislabs/redisinsight:latest
-5432:5432 -d postgres
+## Serviço Online em DigitalOcean
 
-docker run --name redis -p 6379:6379 -d -t redis:alpine
+-- Para usar as rotas da api-vendas você deve configurar seu insomnia com o **insomnia.json** contido na
+-- raiz do projeto.
 
-docker run --name redis-client -v redisinsight:/db -p 8001:8001 -d redislabs/redisinsight:latest
+## 1° passo:
 
-docker exec -it redis sh
+-- Criar um usuário e criar uma seção para o mesmo poder ultilizar as rotas.
+-- A url base para acessar a aplicação é **apivendas.uhzero.com.br** que deve ser configurada na
+-- variavel de ambiente do insomnia!
 
-redis-cli
-set/get/del
+## 2° passo:
 
-rodar container e criar o banco apivendas (ultilizei o dbeaver)
+-- Após criar uma seção você receberá como resposta um JWT (Json Web Token) que terá que ser copiado e
+-- colado na variavel de ambiente "token" do insomnia
 
-deploy repository
+## 3° passo:
+
+-- Agora com a variavel de ambiente configurada o usuário está apto para ultilizar os serviços.
+-- Temos dísponiveis hoje os seguintes serviços: Products | Customers | Orders | Profile
